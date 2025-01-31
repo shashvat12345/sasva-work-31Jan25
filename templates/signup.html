@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Sign Up</title> 
+    <script> 
+        // Function to hide flash messages after a set duration 
+        function hideFlashMessage() { 
+            const flashMessage = document.getElementById('flash-message'); 
+            if (flashMessage) { 
+                setTimeout(() => { 
+                    flashMessage.style.display = 'none'; 
+                }, 4000); // Hide after 4 seconds 
+            } 
+        } 
+        window.onload = hideFlashMessage; // Call function on page load 
+    </script> 
+</head> 
+<body> 
+    <h1>Sign Up</h1> 
+    <!-- Flash message section --> 
+    {% with messages = get_flashed_messages(with_categories=true) %} 
+        {% if messages %} 
+            <div id="flash-message"> 
+                {% for category, message in messages %} 
+                    <div class="{{ category }}">{{ message }}</div> 
+                {% endfor %} 
+            </div> 
+        {% endif %} 
+    {% endwith %} 
+    <form action="/signup" method="post"> 
+        <label for="username">Username:</label> 
+        <input type="text" id="username" name="username" required> 
+        <br> 
+        <label for="password">Password:</label> 
+        <input type="password" id="password" name="password" required> 
+        <br> 
+        <button type="submit">Sign Up</button> 
+    </form> 
+    <p>Already have an account? <a href="/signin">Sign In</a></p> 
+</body> 
+</html>

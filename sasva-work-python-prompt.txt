@@ -1,0 +1,41 @@
+Create a simple webapp using Python, Flask, HTML and mongodb that allows user to sign-up, sign-in and logout on the UI.
+This app must be created under virtual environment. Create a new Python vertual environment and install python libraries as needed.
+While installing libraries use --trusted-host pypi.org --trusted-host files.pythonhosted.org as part of "pip install" command.
+e.g. "pip install Flask --trusted-host pypi.org --trusted-host files.pythonhosted.org"
+As part of "how to run the app" instruct user to activate the virtual environment.
+ 
+New users would sign-up and type in user-name and password in plain text. 
+Entered information should get saved in MongoDB database in plan text. Do not hash passwords. 
+Make sure that username is unique in the database. If user attempts to use existing username he should be asked to "choose another".
+Notify the new users when sign-up process is successful for about 4 seconds and then redirect them to sign-in page.
+
+Existing users would sign-in. If they enter correct credentials display welcome page and a logout button using which they can logout. If they enter wrong credentials notify them on the UI and allow them to re-enter the credentials.
+
+MongoDB database is running on local host port 27017.
+As part of the code create a client to connect to MongoDB using MongoClient which uses "localhost" and port 27017.
+Create a new mongodb database named LoginInfo2 if it does not already exist. If it exists use as it is.
+Create or use existing collection name as "users".
+
+==================
+This creates a skeleton app that runs. It goes on asking you to test after implementing a feature.
+If something is not working it asks you expected Vs Current behaviour and fixes the issue if well described.
+
+At the end it will ask you if you wish to add another feature OR CReate a repo.
+
+
+
+
+
+
+
+
+
+app.config['MONGO_URI'] = 'your_mongodb_connection_string'  # INPUT_REQUIRED {MongoDB connection string} 
+app.config['SECRET_KEY'] = 'your_secret_key'  # INPUT_REQUIRED {Secret key for session management} 
+app.config['SESSION_TYPE'] = 'filesystem' 
+
+
+mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.8
+loginUsers
+
+Collection name: login_password

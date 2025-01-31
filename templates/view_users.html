@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>View Users</title> 
+</head> 
+<body> 
+    <h1>User List</h1> 
+    <a href="/logout">Logout</a> 
+    <br><br> 
+    <form action="/delete_users" method="post">  <!-- Form to handle deletion --> 
+        <table border="1"> 
+            <tr> 
+                <th>Select</th>  <!-- New header for checkboxes --> 
+                <th>Username</th> 
+                <th>Password</th> 
+            </tr> 
+            {% for user in users %} 
+            <tr> 
+                <td><input type="checkbox" name="usernames" value="{{ user.username }}"></td>  <!-- Checkbox for each user --> 
+                <td>{{ user.username }}</td> 
+                <td>{{ user.password }}</td> 
+            </tr> 
+            {% endfor %} 
+        </table> 
+        <br> 
+        <button type="submit">Delete Selected Users</button>  <!-- Button to delete selected users --> 
+    </form> 
+    <br> 
+    <a href="/welcome">Back to Welcome Page</a> 
+</body> 
+</html>
