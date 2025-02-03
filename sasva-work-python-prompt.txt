@@ -22,6 +22,15 @@ If something is not working it asks you expected Vs Current behaviour and fixes 
 
 At the end it will ask you if you wish to add another feature OR CReate a repo.
 
+MongoDB connection would look like...
+
+try: 
+    client = MongoClient('localhost', 27017) 
+    db = client['LoginInfo2']  # Create or use existing database 
+    users_collection = db['users']  # Create or use existing collection 
+    logging.info("MongoDB connection established successfully.") 
+except Exception as e: 
+    logging.error("Error connecting to MongoDB: %s", e, exc_info=True) 
 
 
 
